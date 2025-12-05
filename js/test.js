@@ -1,9 +1,9 @@
-var juego = {
+var game = {
     init: function() {
         // Crear el escenario principal (canvas) indicando su contenedor y tamaño
         var stage = new Konva.Stage({
-            container: 'juego', // ID del div donde Konva insertará sus canvas
-            width: 300,         // Ancho del escenario en píxeles
+            container: 'game',  // ID del div donde Konva insertará sus canvas
+            width: 200,         // Ancho del escenario en píxeles
             height: 200,        // Alto del escenario en píxeles
         });
 
