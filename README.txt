@@ -1,5 +1,5 @@
-Idea de juego (desarrollándose todavía): Juego de gestión de comercio entre ciudades simple
-Nombre provisional: TradeCity
+Idea de juego: Juego de gestión de comercio entre ciudades mediante caravanas
+Nombre: KGC (Konva Commerce Game)
 
 El juego tendrá un diseño MVC escalable.
 
