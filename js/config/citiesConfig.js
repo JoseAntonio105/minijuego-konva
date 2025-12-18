@@ -1,51 +1,84 @@
+// Archivo en el que se definen las ciudades del juego
+
 export const CITIES_CONFIG = [
     {
         id: 'sevilla',
         name: 'Sevilla',
-        x: 250,
+        x: 220,
         y: 350,
-        baseProduction: 14
+        baseProduction: 14,
+        cityRank: 'city'
+    },
+    {
+        id: 'cadiz',
+        name: 'Cádiz',
+        x: 172,
+        y: 475,
+        baseProduction: 5,
+        cityRank: 'town'
+    },
+    {
+        id: 'huelva',
+        name: 'Huelva',
+        x: 105,
+        y: 370,
+        baseProduction: 6,
+        cityRank: 'town'
     },
     {
         id: 'cordoba',
         name: 'Córdoba',
-        x: 400,
-        y: 250,
-        baseProduction: 6
+        x: 370,
+        y: 270,
+        baseProduction: 6,
+        cityRank: 'city'
     },
     {
         id: 'lucena',
         name: 'Lucena',
-        x: 450,
-        y: 380,
-        baseProduction: 2
+        x: 407,
+        y: 335,
+        baseProduction: 2,
+        cityRank: 'town'
     },
     {
         id: 'malaga',
         name: 'Málaga',
-        x: 420,
-        y: 480,
-        baseProduction: 11
+        x: 405,
+        y: 455,
+        baseProduction: 11,
+        cityRank: 'city'
     },
     {
         id: 'jaen',
         name: 'Jaén',
-        x: 580,
-        y: 320,
-        baseProduction: 4
+        x: 490,
+        y: 280,
+        baseProduction: 4,
+        cityRank: 'town'
     },
     {
         id: 'granada',
         name: 'Granada',
-        x: 600,
-        y: 400,
-        baseProduction: 7
+        x: 500,
+        y: 385,
+        baseProduction: 7,
+        cityRank: 'city'
+    },
+    {
+        id: 'loja',
+        name: 'Loja',
+        x: 450,
+        y: 380,
+        baseProduction: 1,
+        cityRank: 'village'
     },
     {
         id: 'almeria',
         name: 'Almería',
-        x: 750,
-        y: 450,
-        baseProduction: 5
+        x: 650,
+        y: 430,
+        baseProduction: 5,
+        cityRank: 'town'
     }
 ];

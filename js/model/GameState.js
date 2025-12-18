@@ -146,7 +146,6 @@ export function calculateCaravanCost(cityAId, cityBId) {
     const dy = cityA.y - cityB.y;
     const dist = Math.hypot(dx, dy);
 
-    // Ajusta estos factores a tu gusto
     const baseGain = gainA + gainB;
     const distanceFactor = 0.5 + dist / 300;
 

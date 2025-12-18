@@ -29,7 +29,7 @@ let caravanListContainer = null;
 export function initUI() {
     const uiLayer = getUiLayer();
 
-    // Título del juego (Konva)
+    // Título del juego
     const titleText = new Konva.Text({
         x: 20,
         y: 20,
@@ -39,7 +39,7 @@ export function initUI() {
         fill: '#ffffff'
     });
 
-    // Texto de oro (Konva)
+    // Texto de oro
     goldText = new Konva.Text({
         x: 20,
         y: 50,
@@ -49,14 +49,14 @@ export function initUI() {
         fill: '#ffd700'
     });
 
-    // Texto de ingreso pasivo (Konva)
+    // Texto de ingreso pasivo
     passiveText = new Konva.Text({
         x: 20,
         y: 75,
         text: `Pasivo: ${getPassiveIncomePerSecond().toFixed(GOLD_DECIMALS)} /s`,
         fontSize: 14,
         fontFamily: 'Arial',
-        fill: '#88ff88'
+        fill: '#00975bff'
     });
 
 

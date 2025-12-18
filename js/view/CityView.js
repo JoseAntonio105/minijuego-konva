@@ -24,27 +24,25 @@ export function renderCities() {
             listening: true
         });
 
-        const circle = new Konva.Circle({
-            x: 0,
-            y: 0,
-            radius: 20,
-            fill: '#f4b41a',
-            stroke: '#000',
-            strokeWidth: 2
-        });
+        const shape = createCityShape(city);
+        shape.name('city-shape');
+
+        const halfSize = getCityShapeHalfSize(city);
+        const LABEL_GAP = 6; // separación entre icono y texto (ajústalo a gusto)
 
         const label = new Konva.Text({
-            x: -40,
-            y: 25,
+            x: -60,
+            y: halfSize + LABEL_GAP,
             text: city.name,
             fontSize: 14,
             fontFamily: 'Arial',
-            fill: '#ffffff',
+            fill: '#000000ff',
             align: 'center',
-            width: 80
+            width: 120
+            
         });
 
-        group.add(circle);
+        group.add(shape);
         group.add(label);
 
         group.on('click', () => {
@@ -84,8 +82,8 @@ function highlightSelectedCity(layer) {
     const selected = getSelectedCity();
 
     layer.getChildren().forEach(group => {
-        const circle = group.findOne('Circle');
-        if (!circle) return;
+        const shape = group.findOne('.city-shape');
+        if (!shape) return;
 
         const isSelected =
             selected &&
@@ -93,16 +91,17 @@ function highlightSelectedCity(layer) {
             group.getAttr('y') === selected.y;
 
         if (isSelected) {
-            circle.stroke('#00ff99');
-            circle.strokeWidth(4);
+            shape.stroke('#00975bff');
+            shape.strokeWidth(2);
         } else {
-            circle.stroke('#000');
-            circle.strokeWidth(2);
+            shape.stroke('#000');
+            shape.strokeWidth(2);
         }
     });
 
     layer.draw();
 }
+
 
 function showGoldPopup(layer, x, y, amount) {
     const popup = new Konva.Text({
@@ -111,7 +110,7 @@ function showGoldPopup(layer, x, y, amount) {
         text: `+${amount.toFixed(2)}`,
         fontSize: 18,
         fontFamily: 'Arial',
-        fill: '#00ff99',
+        fill: '#00975bff',
         align: 'center'
     });
 
@@ -135,3 +134,54 @@ function showGoldPopup(layer, x, y, amount) {
 
     tween.play();
 }
+
+function createCityShape(city) {
+    switch (city.cityRank) {
+        case 'city':
+            return new Konva.RegularPolygon({
+                x: 0,
+                y: 0,
+                sides: 5,        // pentágono
+                radius: 14,
+                fill: '#f4b41a',
+                stroke: '#000',
+                strokeWidth: 2
+            });
+
+        case 'town':
+            return new Konva.Rect({
+                x: -9,
+                y: -9,
+                width: 18,
+                height: 18,
+                fill: '#f4b41a',
+                stroke: '#000',
+                strokeWidth: 2
+            });
+
+        case 'village':
+        default:
+            return new Konva.Circle({
+                x: 0,
+                y: 0,
+                radius: 6,
+                fill: '#f4b41a',
+                stroke: '#000',
+                strokeWidth: 2
+            });
+    }
+}
+
+function getCityShapeHalfSize(city) {
+    switch (city.cityRank) {
+        case 'city':
+            return 14; // radius del pentágono
+        case 'town':
+            return 18 / 2; // height/2 del cuadrado (18)
+        case 'village':
+        default:
+            return 6; // radius del círculo
+    }
+}
+
+
